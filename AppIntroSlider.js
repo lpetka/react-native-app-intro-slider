@@ -47,13 +47,15 @@ export default class AppIntroSlider extends React.Component {
   }
 
   _onNextPress = () => {
-    this.goToSlide(this.state.activeIndex + 1);
-    this.props.onSlideChange && this.props.onSlideChange(this.state.activeIndex + 1, this.state.activeIndex);
-  }
+    const { activeIndex } = this.state;
+    this.goToSlide(activeIndex + 1);
+    this.props.onSlideChange && this.props.onSlideChange(activeIndex + 1, activeIndex);
+  };
   _onPrevPress = () => {
-    this.goToSlide(this.state.activeIndex - 1);
-    this.props.onSlideChange && this.props.onSlideChange(this.state.activeIndex - 1, this.state.activeIndex);
-  }
+    const { activeIndex } = this.state;
+    this.goToSlide(activeIndex - 1);
+    this.props.onSlideChange && this.props.onSlideChange(activeIndex - 1, activeIndex);
+  };
 
   _renderItem = (item) => {
     const { width, height } = this.state;
